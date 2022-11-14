@@ -1,0 +1,11 @@
+{
+    "connectionUrl": "https://zeta.rpcpool.com/kzuQbiYTHUY6xtyvS2y2CvE9",
+    "openOrdersAddressKey": "<openOrdersAddress>",
+    "ownerWallet": [111, 222, 333, 444],
+    "intervalSecs": 10,
+    "tradeAmount": 100,
+    "allowedDivergence": 0.975,
+    "floorThreshold": 0.5,
+    "binanceMarkSymbol": "ATLAS/USDT",
+    "serumTradeSymbol": "ATLAS/USDC"
+}

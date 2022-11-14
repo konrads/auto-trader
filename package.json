@@ -1,0 +1,23 @@
+{
+    "dependencies": {
+        "@project-serum/serum": "file:deps/serum-ts/packages/serum",
+        "@solana/spl-token": "^0.2.0",
+        "@solana/web3.js": "^1.64.0",
+        "ccxt": "^1.95.10",
+        "cmd-ts": "^0.11.0",
+        "decimal.js": "^10.4.1",
+        "typescript": "^4.8.3"
+    },
+    "devDependencies": {
+        "@types/chai": "^4.3.3",
+        "@types/mocha": "^10.0.0",
+        "chai": "^4.3.6",
+        "mocha": "^10.0.0",
+        "ts-node": "^10.9.1"
+    },
+    "scripts": {
+        "clean": "rm -rf node_modules && rm package-lock.json",
+        "build-deps": "cd deps/serum-ts && npm install -g lerna yarn && yarn && yarn build && cd -",
+        "test": "mocha -r ts-node/register test/**/*.spec.ts"
+    }
+}

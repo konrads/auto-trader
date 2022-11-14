@@ -1,0 +1,10 @@
+*.bk
+src/*.js
+node_modules
+.vscode
+.DS_Store
+deps/serum-ts/packages/serum/src/error.js
+deps/serum-ts/packages/serum/src/fees.js
+deps/serum-ts/packages/serum/src/queue.js
+deps/serum-ts/packages/serum/src/slab.js
+deps/serum-ts/packages/serum/src/tokens_and_markets.js

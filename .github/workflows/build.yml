@@ -1,0 +1,42 @@
+name: build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: "16.6.0"
+
+jobs:
+  cancel-previous:
+    name: Cancel redundant jobs
+    runs-on: ubuntu-20.04
+    timeout-minutes: 3
+    if: github.ref != 'refs/heads/main'
+    steps:
+      - uses: styfle/cancel-workflow-action@0.9.0
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+          all_but_latest: true # can cancel workflows scheduled later
+
+  build:
+    name: Build program and test
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        name: Get npm cache directory
+        with:
+          path: |
+            ~/.npm/
+            **/node_modules/
+          key: npm-${{ runner.os }}-v0000-${{ hashFiles('**/package.json') }}
+      - name: Install deps
+        run: npm run build-deps
+      - name: Install
+        run: npm i
